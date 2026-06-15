@@ -1,0 +1,61 @@
+﻿# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+shadow_env/
+jarvis_env/
+venv/
+.venv/
+
+# Secrets
+.env
+config/.env
+
+# Personal data (do NOT commit)
+memory/
+logs/protocol.txt
+session_handle.txt
+session_state.json
+rl_state.json
+
+# Build artifacts
+build/
+dist/
+*.exe
+*.spec
+
+# Generated outputs
+runs/
+Tools/*_runs/
+Tools/vector_memory/
+Tools/readwrite_vectordb/
+Tools/crystal_views/
+Tools/known_faces/
+Tools/music_cache/
+Tools/organic_molecules/
+Tools/latex_renders/
+Tools/meep_runs/
+Tools/fenics_runs/
+Tools/freecad_runs/
+Tools/devsim_runs/
+visualizations/
+watched_folder/
+music_cache/
+crystal_views/
+organic_molecules/
+scratch/
+projects/
+
+# Screenshots and map files
+*.png
+*.html
+
+# Config runtime files
+config/memory_analytics.json
+config/current_workspace.json
+config/rl_state.json
+config/session_state.json
+config/.quota_tracker.json
