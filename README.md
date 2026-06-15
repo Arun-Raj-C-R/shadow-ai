@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  🤖 Shadow AI Assistant
+  Shadow AI Assistant
   <br>
 </h1>
 
@@ -20,7 +20,7 @@
 
 ## âœ¨ What is Shadow?
 
-**Shadow** is a personal AI assistant built around Google''s **Gemini 2.5 Flash Native Audio** model. It runs as a real-time CLI agent that can hear you, see your screen or camera, think, remember you between sessions, and execute a rich suite of scientific and computer-control tools â€” all in a single conversation loop.
+**Shadow** is a personal AI assistant built around Google''s **Gemini 3.1 Live Flash ** model. It runs as a real-time CLI agent that can hear you, see your screen or camera, think, remember you between sessions, and execute a rich suite of scientific and computer-control tools â€” all in a single conversation loop.
 
 Think of it as a local Shadow: voice-in, voice-out, with persistent memory, tool use, and the ability to do everything from Wolfram Alpha math to DFT simulations to CAD design.
 
