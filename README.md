@@ -22,54 +22,54 @@
 
 **Shadow** is a personal AI assistant built around Google's **Gemini 3.1 Flash Live Preview** model for real-time interaction, and **Gemini 3.1 Flash Lite** for memory processing. It runs as a real-time CLI agent that can hear you, see your screen or camera, think, remember you between sessions, and execute a rich suite of scientific and computer-control tools — all in a single conversation loop.
 
-Think of it as a local Shadow: voice-in, voice-out, with persistent memory, tool use, and the ability to do everything from Wolfram Alpha math to DFT simulations to CAD design.
+Think of it as a local Jarvis: voice-in, voice-out, with persistent memory, tool use, and the ability to do everything from Wolfram Alpha math to DFT simulations to CAD design.
 
 ---
 
-## ðŸŽ¥ Modes
+## 🎥 Modes
 
 | Mode | Description |
 |---|---|
-| `none` (default) | Audio-only â€” microphone input + spoken responses |
+| `none` (default) | Audio-only — microphone input + spoken responses |
 | `screen` | Streams your desktop live to the model |
 | `camera` | Streams your webcam live to the model |
 
 ```bash
-python core/shadow.py --mode none      # audio only
-python core/shadow.py --mode screen    # screen share
-python core/shadow.py --mode camera    # webcam
+python core/code5.py --mode none      # audio only
+python core/code5.py --mode screen    # screen share
+python core/code5.py --mode camera    # webcam
 ```
 
 ---
 
-## ðŸ§  Core Architecture
+## 🧠 Core Architecture
 
 ```
 cli/
-â”œâ”€â”€ core/
-â”‚   â”œâ”€â”€ shadow.py           # Main real-time agent (AudioLoop class)
-â”‚   â”œâ”€â”€ groq2.py            # Groq-backed text agent with visualization templates
-â”‚   â”œâ”€â”€ tool_config.py      # Unified tool registry (ALL_TOOLS)
-â”‚   â””â”€â”€ hardware_watchdog.py
-â”œâ”€â”€ Tools/
-â”‚   â”œâ”€â”€ memory_tools.py     # Long-term memory + vector DB + knowledge graph
-â”‚   â”œâ”€â”€ knowledge_graph.py  # Person/relationship graph (NetworkX)
-â”‚   â”œâ”€â”€ wolfram_orchestrator_tool.py
-â”‚   â”œâ”€â”€ materials_orchestrator_tool.py
-â”‚   â”œâ”€â”€ pymatgen_tools_v6.py
-â”‚   â”œâ”€â”€ dft_tool.py         # DFT simulation engine
-â”‚   â”œâ”€â”€ md_tool.py          # Molecular dynamics
-â”‚   â”œâ”€â”€ cad_tool.py / freecad_tool.py / autocad_tool.py
-â”‚   â”œâ”€â”€ computer_control_tool.py
-â”‚   â”œâ”€â”€ face_recognition_tool.py
-â”‚   â”œâ”€â”€ arxiv_tool.py
-â”‚   â”œâ”€â”€ latex_renderer_tool.py
-â”‚   â”œâ”€â”€ music_tool.py
-â”‚   â”œâ”€â”€ google_maps_tool.py
-â”‚   â””â”€â”€ ... (50+ tools total)
-â”œâ”€â”€ memory/                 # Persistent flat-file + vector memory store
-â”œâ”€â”€ prompts/                # System prompt, SPR generator, retrieval prompt
-â””â”€â”€ logs/                   # User-defined protocol overrides
+├── core/
+│   ├── code5.py            # Main real-time agent (AudioLoop class)
+│   ├── groq2.py            # Groq-backed text agent with visualization templates
+│   ├── tool_config.py      # Unified tool registry (ALL_TOOLS)
+│   └── hardware_watchdog.py
+├── Tools/
+│   ├── memory_tools.py     # Long-term memory + vector DB + knowledge graph
+│   ├── knowledge_graph.py  # Person/relationship graph (NetworkX)
+│   ├── wolfram_orchestrator_tool.py
+│   ├── materials_orchestrator_tool.py
+│   ├── pymatgen_tools_v6.py
+│   ├── dft_tool.py         # DFT simulation engine
+│   ├── md_tool.py          # Molecular dynamics
+│   ├── cad_tool.py / freecad_tool.py / autocad_tool.py
+│   ├── computer_control_tool.py
+│   ├── face_recognition_tool.py
+│   ├── arxiv_tool.py
+│   ├── latex_renderer_tool.py
+│   ├── music_tool.py
+│   ├── google_maps_tool.py
+│   └── ... (50+ tools total)
+├── memory/                 # Persistent flat-file + vector memory store
+├── prompts/                # System prompt, SPR generator, retrieval prompt
+└── logs/                   # User-defined protocol overrides
 ```
 
 The agent is built around a single `AudioLoop` class that runs five concurrent asyncio tasks:
@@ -84,7 +84,7 @@ The agent is built around a single `AudioLoop` class that runs five concurrent a
 
 ---
 
-## ðŸ—ƒï¸ Memory System
+## 🗃️ Memory System
 
 Shadow has a **three-layer memory architecture**:
 
@@ -93,7 +93,7 @@ A rolling `deque(maxlen=20)` that holds the last 20 turns in-process for context
 
 ### 2. Long-Term Memory (Flat-file + Vector DB)
 - **Store:** Compresses facts via an SPR (Sparse Priming Representation) LLM pass and writes them to `memory/memory.txt` with a JSON index.
-- **Retrieve:** Hybrid search â€” BM25 keyword retrieval fused with ChromaDB vector similarity search, then synthesized by a retrieval LLM.
+- **Retrieve:** Hybrid search — BM25 keyword retrieval fused with ChromaDB vector similarity search, then synthesized by a retrieval LLM.
 - **Memory Types:** `fact`, `preference`, `experience`, `insight`, `procedure`, `protocol`
 - **Rate-limited:** Max 10 memory API calls per minute to avoid quota exhaustion.
 
@@ -110,7 +110,7 @@ Gemini Live session handles are persisted to `session_handle.txt` so conversatio
 
 ---
 
-## ðŸ”¬ Scientific Tools
+## 🔬 Scientific Tools
 
 Shadow ships with a deep stack of scientific simulation and analysis tools:
 
@@ -165,7 +165,7 @@ Shadow ships with a deep stack of scientific simulation and analysis tools:
 
 ---
 
-## âš¡ Quick Start
+## ⚡ Quick Start
 
 ### Prerequisites
 - Python 3.10+
@@ -188,7 +188,7 @@ pip install -r requirements.txt
 
 ### 2. Configure API Keys
 
-Create a `.env` file in the project root:
+Create a `.env` file in the project root (see `.env.example`):
 
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
@@ -207,20 +207,20 @@ MP_API_KEY=your_materials_project_api_key
 
 ```bash
 # From the cli/ directory
-python core/shadow.py
+python core/code5.py
 
 # With screen share
-python core/shadow.py --mode screen
+python core/code5.py --mode screen
 
 # With webcam
-python core/shadow.py --mode camera
+python core/code5.py --mode camera
 ```
 
 Press `q` + Enter to quit.
 
 ---
 
-## ðŸ—£ï¸ Example Interactions
+## 🗣️ Example Interactions
 
 ```
 > What is the band gap of silicon?
@@ -236,7 +236,7 @@ Press `q` + Enter to quit.
 
 ---
 
-## ðŸ”§ Configuration
+## 🔧 Configuration
 
 ### System Prompt
 Edit `prompts/shadow_system_prompt.txt` to customize Shadow's personality, style, and base instructions.
@@ -254,11 +254,11 @@ Edit `core/tool_config.py` to add, remove, or modify the tools exposed to the ag
 
 ---
 
-## ðŸ“ Key Files
+## 📁 Key Files
 
 | File | Purpose |
 |---|---|
-| `core/shadow.py` | Main agent entry point |
+| `core/code5.py` | Main agent entry point |
 | `core/groq2.py` | Groq-backed text reasoning agent |
 | `core/tool_config.py` | Tool registry (ALL_TOOLS) |
 | `Tools/memory_tools.py` | Long-term memory system |
@@ -271,7 +271,7 @@ Edit `core/tool_config.py` to add, remove, or modify the tools exposed to the ag
 
 ---
 
-## ðŸ›¡ï¸ Privacy & Security
+## 🛡️ Privacy & Security
 
 - All memory is stored **locally** on your machine.
 - API keys are loaded from `.env` and never hardcoded.
@@ -280,7 +280,7 @@ Edit `core/tool_config.py` to add, remove, or modify the tools exposed to the ag
 
 ---
 
-## ðŸš« .gitignore Recommendations
+## 🚫 .gitignore Recommendations
 
 ```gitignore
 .env
@@ -299,14 +299,14 @@ config/*.json
 
 ---
 
-## ðŸ“œ License
+## 📜 License
 
 This project is released into the **public domain** under [The Unlicense](LICENSE).
 
-No copyright. No restrictions. Use it, modify it, sell it, do whatever you want â€” no credit required.
+No copyright. No restrictions. Use it, modify it, sell it, do whatever you want — no credit required.
 
 ---
 
 <p align="center">
-  Built with â¤ï¸ â€” <i>"I am Shadow. I am always listening."</i>
+  Built with ❤️ — <i>"I am Shadow. I am always listening."</i>
 </p>
