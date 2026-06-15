@@ -301,9 +301,14 @@ config/*.json
 
 ## 📜 License
 
-This project is released into the **public domain** under [The Unlicense](LICENSE).
+Copyright © 2026 **Arun Raj**
 
-No copyright. No restrictions. Use it, modify it, sell it, do whatever you want — no credit required.
+Free to use, modify, and build upon — for any purpose, personal, academic, or commercial.
+**One rule: credit me.** A citation, mention, or acknowledgement in your work is all that is required.
+
+> Arun Raj — Shadow AI (https://github.com/Arun-Raj-C-R/shadow-ai)
+
+See [LICENSE](LICENSE) for full terms.
 
 ---
 
