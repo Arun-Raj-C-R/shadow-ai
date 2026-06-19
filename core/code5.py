@@ -213,7 +213,7 @@ parser.add_argument("--camera-id", type=int, default=0, help="Camera device inde
 args = parser.parse_args()
 
 # ---------------- API ----------------
-client = genai.Client(api_key="AIzaSyDq5lgR3TbmMejCQfgLje9oIGbTvuDnWiM")
+client = genai.Client(api_key="API_KEY")
 MODEL = "gemini-3.1-flash-live-preview"
 
 # ---------------- SESSION HANDLE (persistent) ----------------
@@ -1061,7 +1061,7 @@ async def run_autonomous_workflow_logic(workflow_prompt: str) -> str:
         from google import genai
         from google.genai import types
         safe_tools = [{"function_declarations": [f for f in tools[0]["function_declarations"] if f["name"] not in ("computer_control", "run_autonomous_workflow", "self_evolve_tool", "kill_background_process")]}]
-        wf_client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY") or "AIzaSyDq5lgR3TbmMejCQfgLje9oIGbTvuDnWiM")
+        wf_client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY") or "API_KEY")
         config = types.GenerateContentConfig(
             tools=safe_tools,
             temperature=0.2,
