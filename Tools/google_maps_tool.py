@@ -7,7 +7,7 @@ from google import genai
 from google.genai import types
 
 # Use the same API Key as code5.py
-API_KEY = "AIzaSyDq5lgR3TbmMejCQfgLje9oIGbTvuDnWiM"
+API_KEY = "API_KEY"
 
 client = genai.Client(api_key=API_KEY)
 
